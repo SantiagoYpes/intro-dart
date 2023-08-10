@@ -3,6 +3,7 @@ import '../models/frase.dart';
 import 'package:http/http.dart' as http;
 
 Future consultarFrases() async {
+  
   // This example uses the Google Books API to search for books about http.
   // https://developers.google.com/books/docs/overview
 
@@ -27,4 +28,5 @@ Future consultarFrases() async {
   } else {
     print('Request failed with status: ${response.statusCode}.');
   }
+  
 }
