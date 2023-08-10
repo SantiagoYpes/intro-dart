@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'src/Frases.dart';
 
 void main() async {
