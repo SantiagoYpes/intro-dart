@@ -1,3 +1,4 @@
+import 'package:flutter/services.dart';
 import 'package:miapp/actividad_4/controllers/PasswordProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -117,13 +118,76 @@ class _FormPasswordState extends State<FormPassword> {
                 backgroundColor: MaterialStatePropertyAll<Color>(Colors.red)),
           ),
           Center(
-            child: Text(
-              "${_passwordProvider.pass}",
-              style: const TextStyle(fontSize: 20, fontStyle: FontStyle.italic),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                textPass(_passwordProvider),
+                copyPass(_passwordProvider, context)
+              ],
             ),
           ),
         ],
       ),
+    );
+  }
+
+  TextButton copyPass(
+      PasswordProvider _passwordProvider, BuildContext context) {
+    return TextButton.icon(
+      onPressed: () {
+        Clipboard.setData(ClipboardData(text: _passwordProvider.pass));
+        showDialog(
+          context: context,
+          builder: (BuildContext context) => dialogCopy(context),
+        );
+      },
+      icon: const Icon(
+        Icons.copy,
+        color: Colors.red,
+      ),
+      label: const Text(
+        "Copiar",
+        style: TextStyle(color: Colors.red),
+      ),
+    );
+  }
+
+  Dialog dialogCopy(BuildContext context) {
+    return Dialog(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text('Copiado.'),
+            const SizedBox(
+              height: 15,
+              width: 10,
+            ),
+            TextButton.icon(
+              icon: const Icon(
+                Icons.close,
+                color: Colors.red,
+              ),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              label: const Text(
+                'Close',
+                style: TextStyle(color: Colors.red),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Text textPass(PasswordProvider _passwordProvider) {
+    return Text(
+      "${_passwordProvider.pass}",
+      style: const TextStyle(fontSize: 20, fontStyle: FontStyle.italic),
     );
   }
 }
