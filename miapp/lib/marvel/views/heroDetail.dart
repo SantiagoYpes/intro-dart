@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../models/Heroe.dart';
+import '../models/Hero.dart';
 
 class heroDetail extends StatelessWidget {
   Heroe? hero;

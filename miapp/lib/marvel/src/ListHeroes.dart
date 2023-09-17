@@ -1,6 +1,6 @@
 import 'dart:convert' as convert;
 import '../controllers/httpService.dart';
-import '../models/Heroe.dart';
+import '../models/Hero.dart';
 //import 'dart:math';
 
 HttpService httpService = HttpService();
