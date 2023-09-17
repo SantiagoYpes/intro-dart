@@ -1,8 +1,5 @@
-import 'dart:ffi';
-
 import 'package:miapp/actividad_4/controllers/PasswordProvider.dart';
 import 'package:flutter/material.dart';
-import 'package:miapp/actividad_4/generarContrasena.dart';
 import 'package:provider/provider.dart';
 
 class FormPassword extends StatefulWidget {
@@ -30,6 +27,8 @@ class _FormPasswordState extends State<FormPassword> {
         children: [
           TextFormField(
             autovalidateMode: AutovalidateMode.always,
+            controller: TextEditingController(
+                text: _passwordProvider.len.round().toString()),
             validator: (value) {
               RegExp exp = RegExp(r'^(100|[1-9]?[0-9])$');
               if (value == null) {

@@ -1,6 +1,7 @@
 import 'package:miapp/actividad_3/actividad_3.dart';
 import 'package:flutter/material.dart';
 import 'package:miapp/actividad_4/generarContrasena.dart';
+import 'package:miapp/marvel/views/heroeCard.dart';
 
 //Ojalá así como declaro variables me le pudiera declarar a ella
 void main() {
@@ -15,6 +16,7 @@ class AppBases extends StatelessWidget {
       routes: {
         "actividad_3": (context) => actividad_3(),
         "generarContrasena": (context) => generarContrasena(),
+        "heroeCard":(context) => heroesCard()
       },
     );
   }
@@ -24,6 +26,7 @@ createScaffold() {
   List examples = [
     {"name": "Actividad 3", "route": "actividad_3"},
     {"name": "Actividad 4", "route": "generarContrasena"},
+    {"name": "MarvelApp", "route": "heroeCard"},
   ];
 
   return Scaffold(
