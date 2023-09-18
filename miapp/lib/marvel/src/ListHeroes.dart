@@ -1,7 +1,7 @@
 import 'dart:convert' as convert;
 import '../controllers/httpService.dart';
 import '../models/Hero.dart';
-//import 'dart:math';
+import 'dart:math';
 
 HttpService httpService = HttpService();
 
@@ -9,8 +9,8 @@ Future<dynamic> consultarHeroes() async {
   int ts = 21;
   String hash = '78ca84cf14899fc8e9679108d1cffeab';
   String apikey = '8b29bc630dd53f8cbe2ddb63722ffff0';
-  //int num = Random().nextInt(1541);
-  int num = 0;
+  int num = Random().nextInt(1541);
+  //int num = 0;
   //https://gateway.marvel.com:443/v1/public/characters?ts=21&apikey=8b29bc630dd53f8cbe2ddb63722ffff0&hash=78ca84cf14899fc8e9679108d1cffeab&offset=0
   String url =
       'https://gateway.marvel.com:443/v1/public/characters?ts=$ts&apikey=$apikey&hash=$hash&offset=$num';

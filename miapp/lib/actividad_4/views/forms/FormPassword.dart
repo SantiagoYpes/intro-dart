@@ -156,31 +156,35 @@ class _FormPasswordState extends State<FormPassword> {
     return Dialog(
       child: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text('Copiado.'),
-            const SizedBox(
-              height: 15,
-              width: 10,
-            ),
-            TextButton.icon(
-              icon: const Icon(
-                Icons.close,
-                color: Colors.red,
-              ),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              label: const Text(
-                'Close',
-                style: TextStyle(color: Colors.red),
-              ),
-            ),
-          ],
-        ),
+        child: columnDialog(context),
       ),
+    );
+  }
+
+  Column columnDialog(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        const Text('Copiado.'),
+        const SizedBox(
+          height: 15,
+          width: 10,
+        ),
+        TextButton.icon(
+          icon: const Icon(
+            Icons.close,
+            color: Colors.red,
+          ),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          label: const Text(
+            'Close',
+            style: TextStyle(color: Colors.red),
+          ),
+        ),
+      ],
     );
   }
 

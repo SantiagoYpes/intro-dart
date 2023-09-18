@@ -11,6 +11,10 @@ class heroesCard extends StatefulWidget {
 }
 
 class _heroesCard extends State<heroesCard> {
+  Future refresh() async {
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +24,11 @@ class _heroesCard extends State<heroesCard> {
         ),
         body: Padding(
           padding: const EdgeInsets.all(10.0),
-          child: futureBuilderHero(),
+          child: RefreshIndicator.adaptive(
+            onRefresh: refresh,
+            color: Colors.red,
+            child: futureBuilderHero(),
+          ),
         ));
   }
 
@@ -30,7 +38,7 @@ class _heroesCard extends State<heroesCard> {
       builder: (context, snapshot) {
         switch (snapshot.connectionState) {
           case ConnectionState.waiting:
-            return const Text("LOADING...");
+            return loadingCase();
           case ConnectionState.done:
             {
               if (snapshot.hasData) {
@@ -51,10 +59,34 @@ class _heroesCard extends State<heroesCard> {
               }
             }
           default:
-            return const Text("Ha ocurrido un error");
+            return const Text("Something went wrong!");
         }
       },
     );
+  }
+
+  Center loadingCase() {
+    return Center(
+      child: loadingColumn(),
+    );
+  }
+
+  Column loadingColumn() {
+    return const Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          CircularProgressIndicator(
+            valueColor: AlwaysStoppedAnimation(Colors.redAccent),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Text(
+            "Loading ...",
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+          )
+        ]);
   }
 
   ListView loadHeroesCards(listHeroes) {
