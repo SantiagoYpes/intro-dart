@@ -3,6 +3,9 @@ import '../controllers/httpService.dart';
 import '../models/Hero.dart';
 import 'dart:math';
 
+
+//Ojalá así como declaro variables me le pudiera declarar a ella
+
 HttpService httpService = HttpService();
 
 Future<dynamic> consultarHeroes() async {

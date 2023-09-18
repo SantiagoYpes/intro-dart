@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:miapp/marvel/src/ListHeroes.dart';
 import "package:miapp/marvel/views/heroDetail.dart";
 
+//Ojalá así como declaro variables me le pudiera declarar a ella
+
 class heroesCard extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {

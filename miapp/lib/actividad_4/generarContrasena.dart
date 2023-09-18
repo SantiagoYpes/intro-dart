@@ -3,6 +3,8 @@ import 'package:miapp/actividad_4/views/forms/FormPassword.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+//Ojalá así como declaro variables me le pudiera declarar a ella
+
 class generarContrasena extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
