@@ -3,12 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
-InputDecoration inputText(hintext, labeltext) {
+InputDecoration inputText(Icon icon, hintext, labeltext) {
   return InputDecoration(
-      icon: const Icon(
-        Icons.password,
-        color: Colors.blueAccent,
-      ),
+      icon: icon,
       contentPadding: const EdgeInsets.all(4),
       filled: true,
       floatingLabelBehavior: FloatingLabelBehavior.never,
@@ -17,7 +14,7 @@ InputDecoration inputText(hintext, labeltext) {
         borderSide: BorderSide(color: Color.fromARGB(255, 234, 234, 234)),
         borderRadius: BorderRadius.all(Radius.circular(10)),
       ),
-      enabledBorder: OutlineInputBorder(
+      enabledBorder: const OutlineInputBorder(
         borderSide: BorderSide(color: Color.fromARGB(255, 234, 234, 234)),
         borderRadius: BorderRadius.all(Radius.circular(10)),
       ),
@@ -85,7 +82,13 @@ class _FormUserState extends State<FormUser> {
               return "Ingrese un email válido.";
             }
           },
-          decoration: inputText("Ingrese el usuario", "Usuario"),
+          decoration: inputText(
+              const Icon(
+                Icons.email,
+                color: Colors.blueAccent,
+              ),
+              "Ingrese el usuario",
+              "Usuario"),
           keyboardType: TextInputType.emailAddress,
         ),
         const SizedBox(
@@ -106,7 +109,13 @@ class _FormUserState extends State<FormUser> {
               return "La contraseña debe tener una minúscula, una mayúscula y caractéres especiales.";
             }
           },
-          decoration: inputText("Ingrese la contraseña", "Contraseña"),
+          decoration: inputText(
+              const Icon(
+                Icons.password,
+                color: Colors.blueAccent,
+              ),
+              "Ingrese la contraseña",
+              "Contraseña"),
           keyboardType: TextInputType.visiblePassword,
           obscureText: true,
         ),

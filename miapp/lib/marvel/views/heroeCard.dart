@@ -59,7 +59,7 @@ class _heroesCard extends State<heroesCard> {
                   ),
                 );
               }
-            }
+            } 
           default:
             return const Text("Something went wrong!");
         }
